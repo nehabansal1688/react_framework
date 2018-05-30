@@ -41,4 +41,8 @@ npm test -- --coverage
 //for oading images
 npm install --save-dev url-loader
 
+//for loalization
+npm install --save-dev react-localization
 
+//for making http request-> benfits as it transfroms the response
+npm install --save-dev axios
