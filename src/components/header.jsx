@@ -16,7 +16,7 @@ class Header extends React.Component {
           <ul>
             <li><Link to="/">{localization.home}</Link></li>
             <li><Link to="/about">{localization.about}</Link></li>
-            <li><Link to="/contact">{localization.contact}</Link></li>
+            <li><Link to="/lost">{localization.lost}</Link></li>
             <li><Link to="/list">{localization.list}</Link></li>
           </ul>
         </div>
