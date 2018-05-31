@@ -16,14 +16,13 @@ npm install --save-dev babel-preset-react-hmre // see changes on app wile compil
 npm install --save react-router-dom
 //npm install --save react-router
 
-//to run app 
+//to run app
 webpack-dev-server --progress --inline --hot
 
 //for SASS
 npm install --save-dev sass-loader css-loader style-loader node-sass
 
-
-//jquery 
+//jquery
 npm install jquery --save
 
 //Jest testing framework
@@ -38,7 +37,7 @@ npm test -- --watchAll
 // to see code coverage while running test files
 npm test -- --coverage
 
-//for oading images
+//for loading images
 npm install --save-dev url-loader
 
 //for loalization
@@ -46,3 +45,7 @@ npm install --save-dev react-localization
 
 //for making http request-> benfits as it transfroms the response
 npm install --save-dev axios
+
+//for redux
+npm install --save-dev react-redux
+npm install --save-dev redux	
