@@ -3,10 +3,36 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import Home from './src/components/home.jsx';
 import About from './src/components/about.jsx';
 import Contact from './src/components/contact.jsx';
+import Lost from './src/components/lost.jsx';
 import Header from './src/components/header.jsx';
 import List from './src/components/list.jsx';
+import Parent from './src/components/parent.jsx';
 import $ from 'jquery';
 import axios from 'axios';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+
+const initilizeState = {
+  count : 0
+};
+
+function reducer(state = initilizeState, action) {
+  switch(action.type){
+    case "INCREMENT":
+      return {
+        count : state.count + 1
+      };
+      break;
+    case "DECREMENT":
+      return {
+        count : state.count - 1
+      };
+    default:
+      return state; 
+  }
+}
+
+const store = createStore(reducer);
 
 class App extends React.Component {
   constructor(props) {
@@ -40,12 +66,15 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+        <Parent/>
           <Header name={this.state.name}/>
-
+          <Provider store={store}>
+              <Contact count={6}/>
+          </Provider>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
+            <Route path="/lost" component={Lost} />
             <Route path="/list" render={(props) => (<List data={this.state.data}/>)} />
 
           </Switch>
