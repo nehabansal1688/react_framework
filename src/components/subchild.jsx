@@ -1,18 +1,22 @@
 import React from 'react';
 
 class Subchild extends React.Component {
-
-	render(){
-		var items = this.props.data;
-		if(items.length>0){
-			return (
-				<div>
-				</div>
-			)
-		}else {
-			return(<div></div>);
+	renderItems(){
+		var items =this.props.data,
+			elem;
+		if(items.length>0) {
+			elem =  items.map(function(item, index){
+				var item = item.type ? item.type : item;
+				return(<li key={index}>{item.toString()}</li>);
+			})
 		}
-		
+		return elem;
+	}
+				
+	render(){
+		return (
+			<ul>{this.renderItems()}</ul>
+		);
 	}
 }
 
