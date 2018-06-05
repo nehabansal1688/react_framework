@@ -3,6 +3,8 @@ import Subchild from './subchild.jsx';
 
 class Child extends React.Component {
 	render() {
+		//dirty way of writing code
+		//refer subChild component for more cleaner approach
 		var items = this.props.items;
 		if(items.length>0) {
 			return(
@@ -10,7 +12,7 @@ class Child extends React.Component {
 					{
 						items.map(function(item,index){
 							return(
-								 <li> {item.type} </li>
+								 <li key={index}> {item.type} </li>
 
 							 )
 						})
@@ -20,10 +22,12 @@ class Child extends React.Component {
 		} else {
 			return (
 				<div>{
-					Object.keys(items).map(function(key) {
-						return ( 
-							
-							<Subchild data={items[key]}/>
+					Object.keys(items).map(function(key, index) {
+						return (
+						<div key={index}>	
+							<span>{key}</span>
+							<Subchild key={index} data={items[key]}/>
+						</div>
 						);
 					})
 				}
