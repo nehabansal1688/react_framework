@@ -24,7 +24,7 @@ class Parent extends React.Component {
 				{
 					this.state.data.map(function(item, index) {
 						return (
-							<div className="row">
+							<div className="row" key={index}>
 								<div className="col-sm-4">
 									{item.name}
 								</div>
