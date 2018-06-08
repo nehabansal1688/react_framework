@@ -7,6 +7,7 @@ import Lost from './src/components/lost.jsx';
 import Header from './src/components/header.jsx';
 import List from './src/components/list.jsx';
 import Parent from './src/components/parent.jsx';
+import Formvalidation from './src/components/formvalidation.jsx';
 import $ from 'jquery';
 import axios from 'axios';
 import {createStore} from 'redux';
@@ -66,7 +67,6 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-        <Parent/>
           <Header name={this.state.name}/>
           <Provider store={store}>
               <Contact count={6}/>
@@ -76,7 +76,7 @@ class App extends React.Component {
             <Route path="/about" component={About} />
             <Route path="/lost" component={Lost} />
             <Route path="/list" render={(props) => (<List data={this.state.data}/>)} />
-
+            <Route path="/validation" component={Formvalidation}/>
           </Switch>
         </div>
     </Router>
