@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../styles/components/formvalidation.scss';
+import  FormTxtBox from './formTxtBox.jsx';
+import  FormTxtArea from './formTxtArea.jsx';
 
 class Formvalidation extends React.Component {
 	constructor(){
@@ -16,11 +18,13 @@ class Formvalidation extends React.Component {
 	      nestedProp: {
 	      	level1:"",
 	      	level2:""
-	      }
+	      },
+	      achievment:""
 	    };
 	    this.handleSubmit = this.handleSubmit.bind(this);
 	    this.handleChange = this.handleChange.bind(this);
 	    this.validateFields = this.validateFields.bind(this);
+	    this.updateState = this.updateState.bind(this);
 	}
 	handleChange(e) {
 		var name = e.target.name;
@@ -28,6 +32,11 @@ class Formvalidation extends React.Component {
 		this.setState({[name]: val},() =>{
 			this.validateFields(name,val)
 		});
+	}
+	//field validatio  is done in sub component
+	//this function just updates the achievenemnt state wrt the one set in sub component
+	updateState(key,value) {
+		this.setState({[key]:value});
 	}
 	validateFields(key,value) {
 		
@@ -111,7 +120,8 @@ class Formvalidation extends React.Component {
 					          </select>
 	      				</div>
 	      			</div>
-	      			
+	      			<FormTxtBox onValueChange={this.handleChange}/>
+	      			<FormTxtArea onValueChange={this.updateState}/>
 	      			<div className="row form-group">
 	      				<div className="col-sm-6">
 	      					<input className="form-control btn btn-info" type="submit" value ="submit"/>
