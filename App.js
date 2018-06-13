@@ -8,6 +8,9 @@ import Header from './src/components/header.jsx';
 import List from './src/components/list.jsx';
 import Parent from './src/components/parent.jsx';
 import Formvalidation from './src/components/formvalidation.jsx';
+import Fragments from './src/components/fragments.jsx';
+import Contexts from './src/components/contexts.jsx';
+import Refrences from './src/components/refrences.jsx';
 import $ from 'jquery';
 import axios from 'axios';
 import {createStore} from 'redux';
@@ -77,6 +80,10 @@ class App extends React.Component {
             <Route path="/lost" component={Lost} />
             <Route path="/list" render={(props) => (<List data={this.state.data}/>)} />
             <Route path="/validation" component={Formvalidation}/>
+            <Route path="/fragments" component={Fragments}/>
+            <Route path="/contexts" component={Contexts}/>
+            <Route path="/ref" component={Refrences}/>
+
           </Switch>
         </div>
     </Router>
