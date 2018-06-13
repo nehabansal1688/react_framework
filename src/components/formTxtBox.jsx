@@ -10,6 +10,7 @@ class FormTxtBox extends React.Component {
 		this.props.onValueChange(e);
 	}
 	render() {
+		//throw new Error("ddddd");
 		return(
 			<div className="row form-group">
   				<div className="col-sm-2">
