@@ -1,6 +1,8 @@
 export default({
 	home:"Zuhause",
 	about:"Über",
-	contact:"Kontakt",
-	list:"Liste"
+	lost:"Kontakt",
+	list:"Liste",
+	fragments:"dededed",
+	validation:"edde33"
 });
