@@ -2,6 +2,7 @@ import React from 'react';
 import '../../styles/components/formvalidation.scss';
 import  FormTxtBox from './formTxtBox.jsx';
 import  FormTxtArea from './formTxtArea.jsx';
+import  ErrorBoundary from './errorHandling.jsx';
 
 class Formvalidation extends React.Component {
 	constructor(){
@@ -73,6 +74,7 @@ class Formvalidation extends React.Component {
    render(){
 	    return (
 		  <div>
+		  	
 	      		<form className="container form-horizontal" onSubmit={this.handleSubmit}>
 	      			<div className="row form-group">
 	      				<div className="col-sm-2">
@@ -83,51 +85,54 @@ class Formvalidation extends React.Component {
 	      					<span className="error">{this.state.nameError}</span>
 	      				</div>
 	      			</div>
-	      		<div className="row form-group">
-	      				<div className="col-sm-2">
-	      					Email:
-	      				</div>
-	      				<div className="col-sm-4">
-	      					<input className={"form-control" + (this.state.emailError != "" ? ' input-error' : '')  } type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
-	      					<span className="error">{this.state.emailError}</span>
-	      				</div>
-	      			</div>
-	      			<div className="row form-group">
-	      				<div className="col-sm-2">
-	      					Age:
-	      				</div>
-	      				<div className="col-sm-4">
-	      					<input className="form-control" type="number" min="10" max="90" name="age" value={this.state.age} onChange={this.handleChange}/>
-	      				</div>
-	      			</div>
-	      			<div className="row form-group">
-	      				<div className="col-sm-2">
-	      					Attached Id Proof:
-	      				</div>
-	      				<div className="col-sm-4">
-	      					<input className="form-control" type="checkbox" name="proof" checked={this.state.proof} onChange={this.handleChange}/>
-	      				</div>
-	      			</div>
-	      			<div className="row form-group">
-	      				<div className="col-sm-2">
-	      					Select level:
-	      				</div>
-	      				<div className="col-sm-4">
-	      					<select className="form-control" name="level" value={this.state.level} onChange={this.handleChange}>
-					            <option value="begginer">begginer</option>
-					            <option value="intermediate">intermediate</option>
-					            <option value="expert">expert</option>
-					          </select>
-	      				</div>
-	      			</div>
-	      			<FormTxtBox onValueChange={this.handleChange}/>
-	      			<FormTxtArea onValueChange={this.updateState}/>
-	      			<div className="row form-group">
-	      				<div className="col-sm-6">
-	      					<input className="form-control btn btn-info" type="submit" value ="submit"/>
-	      				</div>
-	      			</div>
-	      		</form>
+		      		<div className="row form-group">
+		      				<div className="col-sm-2">
+		      					Email:
+		      				</div>
+		      				<div className="col-sm-4">
+		      					<input className={"form-control" + (this.state.emailError != "" ? ' input-error' : '')  } type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
+		      					<span className="error">{this.state.emailError}</span>
+		      				</div>
+		      			</div>
+		      			<div className="row form-group">
+		      				<div className="col-sm-2">
+		      					Age:
+		      				</div>
+		      				<div className="col-sm-4">
+		      					<input className="form-control" type="number" min="10" max="90" name="age" value={this.state.age} onChange={this.handleChange}/>
+		      				</div>
+		      			</div>
+		      			<div className="row form-group">
+		      				<div className="col-sm-2">
+		      					Attached Id Proof:
+		      				</div>
+		      				<div className="col-sm-4">
+		      					<input className="form-control" type="checkbox" name="proof" checked={this.state.proof} onChange={this.handleChange}/>
+		      				</div>
+		      			</div>
+		      			<div className="row form-group">
+		      				<div className="col-sm-2">
+		      					Select level:
+		      				</div>
+		      				<div className="col-sm-4">
+		      					<select className="form-control" name="level" value={this.state.level} onChange={this.handleChange}>
+						            <option value="begginer">begginer</option>
+						            <option value="intermediate">intermediate</option>
+						            <option value="expert">expert</option>
+						          </select>
+		      				</div>
+		      			</div>
+		      			
+		      			<ErrorBoundary> <FormTxtBox onValueChange={this.handleChange}/></ErrorBoundary>
+
+		      			<FormTxtArea onValueChange={this.updateState}/>
+		      			<div className="row form-group">
+		      				<div className="col-sm-6">
+		      					<input className="form-control btn btn-info" type="submit" value ="submit"/>
+		      				</div>
+		      			</div>
+		      		</form>
+
 		  </div>
 	  );
 	}
