@@ -1,13 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-const Contact = React.createClass({ 
+class Contact extends React.Component {
+	constructor(props){
+		super(props);
+		this.incrementCouter = this.incrementCouter.bind(this);
+		this.decrementCouter = this.decrementCouter.bind(this);
+	}
 	incrementCouter() {
 	 	this.props.dispatch({type:"INCREMENT"});
-	},
+	}
 	decrementCouter() {
  		this.props.dispatch({type:"DECREMENT"});
-	},
+	}
 
 	render(){
 	  return (
@@ -17,9 +22,8 @@ const Contact = React.createClass({
 	       <span>{this.props.count}</span>
 	       <button className ="btn-default" type="button" onClick={this.decrementCouter}>-</button>
 	    </div>
-  	)}
-});
-
+  	)}	
+}
 const mapStateToProps = state => ({
 	count: state.count
 })
