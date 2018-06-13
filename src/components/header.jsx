@@ -9,18 +9,24 @@ class Header extends React.Component {
  
   render(){
     return (
-      <div className="navbar-fixed">
-      <nav className="teal lighten-2">
-        <div className="nav-wrapper">
-          {this.renderLogo(this.props.name)}
-          <ul>
-            <li><Link to="/">{localization.home}</Link></li>
-            <li><Link to="/about">{localization.about}</Link></li>
-            <li><Link to="/lost">{localization.lost}</Link></li>
-            <li><Link to="/list">{localization.list}</Link></li>
-          </ul>
-        </div>
-      </nav>
+    <div class="container">
+        <div className="navbar-fixed">
+        <nav className="teal lighten-2">
+          <div className="nav-wrapper">
+            {this.renderLogo(this.props.name)}
+            <ul className="list-inline">
+              <li className="list-inline-item"><Link to="/">{localization.home}</Link></li>
+              <li className="list-inline-item"><Link to="/about">{localization.about}</Link></li>
+              <li className="list-inline-item"><Link to="/lost">{localization.lost}</Link></li>
+              <li className="list-inline-item"><Link to="/list">{localization.list}</Link></li>
+              <li className="list-inline-item"><Link to="/fragments">{localization.fragments} </Link></li>
+              <li className="list-inline-item"><Link to="/validation">{localization.validation} </Link></li>
+              <li className="list-inline-item"><Link to="/contexts">Contexts </Link></li>
+              <li className="list-inline-item"><Link to="/ref">Refrences </Link></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </div>
     );
   }
