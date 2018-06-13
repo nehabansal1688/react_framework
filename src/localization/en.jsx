@@ -1,6 +1,8 @@
 export default({
      home:"Home",
      about:"About",
-     contact:"Contact",
-     list:"List"
+     lost:"Lost",
+     list:"List",
+	fragments:"Fragments",
+	validation:"Validation"
   });
