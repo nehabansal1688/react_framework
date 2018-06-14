@@ -49,3 +49,6 @@ npm install --save-dev axios
 //for redux
 npm install --save-dev react-redux
 npm install --save-dev redux	
+
+/for detecting spread operator
+npm install --save-dev babel-preset-stage-0
