@@ -8,6 +8,7 @@ export default class References extends React.Component {
 		this.focusText = this.focusText.bind(this);
 		this.clearFocus = this.clearFocus.bind(this);
 		this.getFocus = this.getFocus.bind(this);
+		this.showTypesVal = this.showTypesVal.bind(this);
 	}
 	focusText() {		
 		this.refrnce.current.focus();
@@ -21,6 +22,10 @@ export default class References extends React.Component {
 		input.focus();
 		input.value = "Focus is on Me";
 	}
+	showTypesVal() {
+		alert(this.txt.value);
+		alert(this.node.summary.value);
+	}
 	render() {
 		return(
 			<div className="container">
@@ -31,15 +36,25 @@ export default class References extends React.Component {
 					<input type="text" ref="myInput" value="No focus :("/>
 					<input type="button" onClick={this.getFocus} value="Click Me"/>
 				</div>
+				<input type="text" defaultValue="Modify me" ref={(name) => this.txt = name} />
+				<input type="button" onClick={this.showTypesVal} value="Show Value"/>
+				<Children ref={(node) => {this.node = node;}}/>
 			</div>
 		);
 	}
 }
 
-/**class inptTxt extends React.Component {
-	render(){
+class Children extends React.Component {
+	constructor(props){
+		super(props);
+	}
+	render() {
 		return(
-			<
+			<div>
+				Summary:  <input type="text" ref={(name) => {this.summary = name;}}/>
+			</div>
 		);
 	}
-}*/
+}
+
+//Uncontrolled components -> state is maintained by DOM not by react and we can access elements by refs
