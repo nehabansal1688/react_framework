@@ -77,7 +77,7 @@ store.dispatch({
  });
  **/
 
- import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers} from 'redux';
  
 const initializeState = {
 	result: 1,
@@ -125,6 +125,7 @@ const mathReducer = (state = initializeState,action)  => {
 	}
 	return state;
 };
+
 
 
 const store = createStore(combineReducers({mathReducer,userReducer}));

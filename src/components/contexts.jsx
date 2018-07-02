@@ -30,6 +30,7 @@ class LastElement extends React.Component {
 			 	<Theme.Consumer>
 			      {val => <input type="button" className="btn-default" value={val} style={{background:val}}/>}
 			    </Theme.Consumer>
+			    <span> blue color button n text is reterived from the context</span>
 		    </div>
 		);
 	}
