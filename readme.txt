@@ -52,3 +52,9 @@ npm install --save-dev redux
 
 /for detecting spread operator
 npm install --save-dev babel-preset-stage-0
+
+//for redux logger to know about next actions
+npm install --save-dev redux-logger
+
+//for async actions i.e. getting data from server before executing the action
+npm install --save-dev redux-thunk
