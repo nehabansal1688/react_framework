@@ -11,6 +11,7 @@ import Formvalidation from './src/components/formvalidation.jsx';
 import Fragments from './src/components/fragments.jsx';
 import Contexts from './src/components/contexts.jsx';
 import Refrences from './src/components/refrences.jsx';
+import ReactReduxPart1 from './src/components/reactReduxPart1.jsx';
 import $ from 'jquery';
 import axios from 'axios';
 import {createStore} from 'redux';
@@ -56,8 +57,20 @@ class App extends React.Component {
         console.log( parsed_json);
         this.setState({data: parsed_json});
       }.bind(this)
-      });*/
+      });
 
+
+      */
+    /**
+    //handling multiple faliures in axios
+    axios.all([
+          axios.request(options[ 0 ]).catch(useNull),
+        , axios.request(options[ 1 ]).catch(useNull),
+        , axios.request(options[ 2 ]).catch(useNull)
+    ]).then(axios.spread(function (res1, res2, res3) {
+        // res1, res2, and res3 contains the response or null if they failed
+    }));
+    */
       
     //get data from server using axios
     var self = this;
@@ -83,7 +96,7 @@ class App extends React.Component {
             <Route path="/fragments" component={Fragments}/>
             <Route path="/contexts" component={Contexts}/>
             <Route path="/ref" component={Refrences}/>
-
+            <Route path="/react" component={ReactReduxPart1}/>
           </Switch>
         </div>
     </Router>
